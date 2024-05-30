@@ -191,11 +191,11 @@ To check the current status and start migrations if necessary, run:
     new Postgres version.
   - Thus, **first dump the contents of your DB** ([Database
     backup](#database-backup))
-  - To avoid losing data, please stop all containers (`docker-compose down`)
+  - To avoid losing data, please stop all containers (`docker compose down`)
     and copy the instance directory using e.g. `cp -r OS_DIR OS_DIR-41`.\
     The following steps should be tested in the copied location first.
     1. Be sure you did dump the DB
-    2. Run `docker-compose down --volumes` to stop the containers and also
+    2. Run `docker compose down --volumes` to stop the containers and also
        remove the `postgres-data` volume\
        **If the dump did not work for any reason you will lose all your data**.
     3. Update the tag and regenerate the compose file (see [Update to a new
@@ -204,7 +204,7 @@ To check the current status and start migrations if necessary, run:
     4. Start only `postgres` and restore the dump into the DB, which should now
        be running on version 15 (see [Database backup](#database-backup))
     5. You can now start the remaining OpenSlides services by running
-       `docker-compose up --detach`
+       `docker compose up --detach`
   - After successful upgrade stop the containers and repeat the steps in the
     original directory
   - If you updated without dumping beforehand and ran into postgres' error log
